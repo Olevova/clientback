@@ -3,14 +3,14 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const http = require('http').Server(app);
-// const router = require('../server/routes/router');
+const router = require('../server/routes/router');
 const { Server } = require('socket.io');
 const Comment = require('./models/chatModels');
 const { v4: uuidv4 } = require('uuid');
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
-// app.use(router);
+app.use(router);
 
 // Підключення до бази даних
 mongoose.connect('mongodb+srv://olevova1983:olevova1983@cluster0.qu7icj6.mongodb.net/comments', {
