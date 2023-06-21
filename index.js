@@ -24,6 +24,22 @@ mongoose.connect('mongodb+srv://olevova1983:olevova1983@cluster0.qu7icj6.mongodb
     console.error('Error connecting to MongoDB:', error);
   });
 
+  // Добавьте этот код в ваш серверный файл
+
+const Comment = require('./models/chatModels');
+
+app.get('/test-db', (req, res) => {
+  Comment.find()
+    .then((comments) => {
+      res.send(comments);
+    })
+    .catch((error) => {
+      console.error('Error retrieving comments:', error);
+      res.status(500).send('Error retrieving comments');
+    });
+});
+
+
 const io = new Server(http, {
   cors: {
     origin: "*",
