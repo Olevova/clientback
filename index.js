@@ -108,6 +108,6 @@ socket.on('deleteComment', ({ commentId, userParams }) => {
 });
 
 // Підключення до сервера
-http.listen("https://clientback1983.onrender.com", () => {
+http.listen("5050", () => {
   console.log('Server started on port 5050');
 });
