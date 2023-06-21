@@ -1,10 +1,11 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-id: String,
+  id: String,
   comments: [
     {
-      id:Number,
+      id: Number,
       body: String,
       postId: String,
       user: {
@@ -18,6 +19,6 @@ id: String,
   limit: Number
 });
 
+const Comment = mongoose.model('Comment', commentSchema);
 
-const Comment = model('Comment', commentSchema);
 module.exports = Comment;
